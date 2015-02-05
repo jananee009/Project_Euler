@@ -7,6 +7,7 @@ def getProduct(Matrix):
 	beg = 0
 	end = 0
 	# row wise product
+	
 	print "row wise product" 	
 	for i in range(0,len(Matrix)):
 		print "processing row:",i
@@ -18,8 +19,9 @@ def getProduct(Matrix):
 			#print "end is:", end
 			for k in range(beg,end):
 				prod = prod * Matrix[i][k]
-			listOfProducts.append(prod)
-	print "max of row wise products:", max(listOfProducts)
+			listOfProducts.append(prod)		
+	#print "max of row wise products:", max(listOfProducts)
+	
 	
 	#Column wise product
 	print "Column wise product"
@@ -33,8 +35,10 @@ def getProduct(Matrix):
 			for k in range(beg,end):
 				prod = prod*eachRow[k]
 			listOfProducts.append(prod)
+	print 		listOfProducts[17]
 	print "max of column wise products:", max(listOfProducts)
-			
+	
+	'''		
 	# Diagonal wise product
 	print "Diagonal wise product"
 	diagonalNumList = [[]]
@@ -60,7 +64,7 @@ def getProduct(Matrix):
 				prod = prod*diagonalNumList[i][k]
 			listOfProducts.append(prod)												
 	return max(listOfProducts)	
-
+	'''
 	
 
 def readAllNumbers():
@@ -73,15 +77,17 @@ def readAllNumbers():
 			matrix[i][j] = int(strList[j])
 		i = i+1			
 	f.close()
-	print matrix
-	print "Number of rows in matrix:",len(matrix)
+	#print matrix
+	#print "Number of rows in matrix:",len(matrix)
+	#print matrix[0]
 	max = getProduct(matrix)
 	return max
 	
 
 def main():
-	greatestProd = readAllNumbers()	
-	print greatestProd
+	#greatestProd = readAllNumbers()	
+	#print greatestProd
+	readAllNumbers()
 
 
 
