@@ -1,18 +1,15 @@
-# 10,001st Prime
+# what is the 10,001st Prime number?
 import math
+import time
 
 def getPrimeNumbers(n):
-	primeNumbersList = []
-	number = 2
-	while(len(primeNumbersList) <> n):
+	primeNumbersList = [2,3]
+	number = 5
+	while(len(primeNumbersList) != n):
 		if(checkForPrime(number)):
 			primeNumbersList.append(number)
 		#print primeNumbersList
-		number = number+1
-		for i in range(0,len(primeNumbersList)):
-			if(number % primeNumbersList[i] == 0):
-				number = number + 1
-				break					
+		number = number+2				
 	return 	primeNumbersList[n-1]		
 				
 		
@@ -20,17 +17,12 @@ def getPrimeNumbers(n):
 
 
 def checkForPrime(num):
-	#print "Checking For Prime"
-	#print num
-	primeList = []
-	if( num == 2 or num == 3):
-		return True
-	else:
-		sqrt = 	int(math.sqrt(num))
-		for i in range(2,sqrt+1):
-			if ((num % i)==0):
-				primeList.append(i)
-	if( len(primeList) == 0 ):
+	factorList = []
+	sqrt = 	int(math.sqrt(num))
+	for i in range(2,sqrt+1):
+		if ((num % i)==0):
+			factorList.append(i)
+	if( len(factorList) == 0 ):
 		return True
 	else:
 		return False	 			
@@ -39,11 +31,16 @@ def checkForPrime(num):
 
 
 def main():
+	start_time = time.time()
+	print "Calling function........"
 	index = 10001
 	primeNumber = getPrimeNumbers(index)
 	print primeNumber
+	print"Problem solved in %s seconds " % (time.time()-start_time)
 	
 
 
 if __name__ == "__main__":
 	main()
+
+# Answer: 104743	
