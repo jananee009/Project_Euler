@@ -1,6 +1,6 @@
 # Greatest product of 5 consecutive digits in the 1000 digit number
 # Problem Source = https://projecteuler.net/problem=8
-# Approach: 1. First read the thousand digit number and convert it to a list containing 1000 elements (i.e. each element corresponds to a digit).
+# Approach: 1. First read the thousand digit number and convert it to a list containing 1000 elements (i.e. each element in the list corresponds to a digit).
 # 2. In the list, take 13 digits sequentially at a time, compute the product and store the product in the list.
 # 3. Repeat the process until you run out of digits.
 # 4. Get the highest product from the product list. This is our desired result. 
@@ -14,10 +14,11 @@ def maxProduct(numberList):
 		prod = 1
 		beg = i
 		end = i+13
-		if (end <= len(numberList)-1):
+		if (end > len(numberList)-1):
+			break
+		else:	
 			for j in range(beg,end):
-				prod = prod * numberList[j]
-		print beg, end, prod	
+				prod = prod * numberList[j]	
 		productList.append(prod)
 	maxProduct = max(productList)
 	return maxProduct
@@ -81,7 +82,7 @@ def main():
 	listOfNumbers = listOfNumbers + convertNumberToListOfIntegers(s)
 	listOfNumbers = listOfNumbers + convertNumberToListOfIntegers(t)
 	
-	print listOfNumbers
+	#print listOfNumbers
 	greatestProduct = maxProduct(listOfNumbers)
 	print "The greatest product of the thirteen adjacent digits in the 1000-digit number is: ",greatestProduct
 	print"Problem solved in %s seconds " % (time.time()-start_time)
