@@ -1,32 +1,42 @@
 # Greatest product of 5 consecutive digits in the 1000 digit number
+# Problem Source = https://projecteuler.net/problem=8
+# Approach: 1. First read the thousand digit number and convert it to a list containing 1000 elements (i.e. each element corresponds to a digit).
+# 2. In the list, take 13 digits sequentially at a time, compute the product and store the product in the list.
+# 3. Repeat the process until you run out of digits.
+# 4. Get the highest product from the product list. This is our desired result. 
 
+import time
 
+# This methdd computes the product of every 13 consecutive elements in a list and returns the product that has the highest value.
 def maxProduct(numberList):
 	productList = []
 	for i in range(0,len(numberList)):
 		prod = 1
 		beg = i
-		end = i+5
-		if (end <= len(numberList)):
-			for j in range(i,i+5):
+		end = i+13
+		if (end <= len(numberList)-1):
+			for j in range(beg,end):
 				prod = prod * numberList[j]
-				print prod
+		print beg, end, prod	
 		productList.append(prod)
 	maxProduct = max(productList)
 	return maxProduct
 				
-
+# this method converts a number to a list of digits.
 def convertNumberToListOfIntegers(inputNumber):
-	strNum = str(inputNumber)
+	strNum = str(inputNumber) # first convert number to string format.
 	numList = []
-	for digit in strNum:
+	for digit in strNum: # then convert each element in the string in to an integer and append it to a list.
 		numList.append(int(digit))
 	return numList
 
 
 
 def main():
-	
+
+	start_time = time.time()
+
+	# Read each line (containing 50 digits) in to a separate variable.
 	a = 73167176531330624919225119674426574742355349194934
 	b = 96983520312774506326239578318016984801869478851843
 	c = 85861560789112949495459501737958331952853208805511
@@ -48,7 +58,8 @@ def main():
 	s = 5886116467109405077541002256983155200055935729725
 	t = 71636269561882670428252483600823257530420752963450
 	
-	listOfNumbers = []
+	# convert each line of digits in to a list of digits. At the end, You will have one list containing 1000 digits. 
+	listOfNumbers = [] # this list will store 1000 digits.
 	listOfNumbers = listOfNumbers + convertNumberToListOfIntegers(a)
 	listOfNumbers = listOfNumbers + convertNumberToListOfIntegers(b)
 	listOfNumbers = listOfNumbers + convertNumberToListOfIntegers(c)
@@ -70,9 +81,10 @@ def main():
 	listOfNumbers = listOfNumbers + convertNumberToListOfIntegers(s)
 	listOfNumbers = listOfNumbers + convertNumberToListOfIntegers(t)
 	
-	#listOfNumbers = [1,2,3,4,5,6,7,8,9]
+	print listOfNumbers
 	greatestProduct = maxProduct(listOfNumbers)
-	print greatestProduct
+	print "The greatest product of the thirteen adjacent digits in the 1000-digit number is: ",greatestProduct
+	print"Problem solved in %s seconds " % (time.time()-start_time)
 
 
 
@@ -80,3 +92,4 @@ def main():
 if __name__ == "__main__":
 	main()
 
+# Answer: 23514624000

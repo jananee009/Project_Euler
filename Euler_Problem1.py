@@ -1,14 +1,18 @@
 # Problem 1: Multiples of 3 and 5
+# Problem Source: https://projecteuler.net/problem=1
+# Approach: Starting from 1, check whether a number is a multiple of 3 or 5. 
+# Keep adding all the multiples until you reach the number 1000.
 
 
 import math
 import time
 
 def getMultiplesOf3or5(limit):
-	sumOfAllMultiples = 0
+	sumOfAllMultiples = 0 
+	# From 1 going up to 1000, check whether the number is a multiple of 3 or 5.
 	for i in range(1,1000):
 		if (i%3==0 or i%5==0):
-			sumOfAllMultiples = sumOfAllMultiples+i
+			sumOfAllMultiples = sumOfAllMultiples+i # compute sum of numbers that are multiples of 3 or 5.
 	return sumOfAllMultiples		
 
 
