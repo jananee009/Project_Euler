@@ -1,4 +1,10 @@
-# What is the value of the first triangle number to have over five hundred divisors?
+# Problem 12: Highly divisible triangular number
+# Problem Source: https://projecteuler.net/problem=12
+# Approach: 1. First compute triangle numbers. 
+# 2. As you compute each triangle number, find the number of divisors it has.
+# 3. Keep repeating steps 1 & 2 until you find a triangle number that has more than 500 divisors.
+
+
 import time
 import math
 
@@ -28,10 +34,12 @@ def generateDivisors(num):
 def main():
 	start_time = time.time()
 	requiredNumber = generateTriangleNumbers()
-	print requiredNumber
-	print (time.time() - start_time), "seconds"
+	print "the value of the first triangle number to have over five hundred divisors: ", requiredNumber
+	print "Solution found in :", (time.time() - start_time), "seconds."
 	
 
 
 if __name__ == "__main__":
 	main()
+
+# Answer: 76576500	

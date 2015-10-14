@@ -1,37 +1,47 @@
-# Problem 13:
+# Problem 13: Large Sum
+# Source: https://projecteuler.net/problem=13
 # Work out the first ten digits of the sum of the following one-hundred 50-digit numbers.
 
 
-def readTxtFile():
+import time
+
+
+def findLargeSum():
+	# Read the one-hundred 50-digit numbers
 	text_file = open("problem13.txt",'r')
-	lines = text_file.readlines()
-	print type(lines)
+	lines = text_file.readlines() # Read each line of digits from the text file in to a list. List contains one hundred 50 digit numbers in string format.
+	
+
 	sumOfNumbers = 0
 	numbers = []
-	for line in lines:
+	for line in lines: # Convert each line (50 digit number) in to integer form and add it to a new list of numbers. This new list will hold all the 100 numbers.
 		numbers.append(int(line))
-	print "size of numbers: ",len(numbers)
-	print "first number is: " ,numbers[0] 
 	
-	#Adding all the 50 100-digit numbers
+	#Sum all the one hundred 50-digit numbers
 	sumOfNumbers = sum(numbers)
 	
 	#Find the first 10 digits of the sum 
 	sumOfNumbers = str(sumOfNumbers)
-	print "The first 10 digits are: "
+	first10digits = "" 
 	for i in xrange(10):	
-		print int(sumOfNumbers[i])
+		first10digits = first10digits + sumOfNumbers[i]
+	print "The first 10 digits are: ", int(first10digits)
+	return
 		
 		
 
 
 
 def main():
-	readTxtFile()
+	start_time = time.time()
+	findLargeSum()
+	print "Solution found in: ",time.time()-start_time, "seconds."
 
 
 if __name__ == "__main__":
 	main()
+
+# Answer: 5537376230	
 	
 	
 	
