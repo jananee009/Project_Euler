@@ -20,16 +20,12 @@ def disproveGoldbachOtherConjecture():
 	while(True):
 		n = n+2	
 		if (not isPrime(n)): #check whether n is composite 
-			for y in range(1000000): # for each y 
+			for y in range(n): # for each y 
 				value = n - 2*y*y # compute value
 				if(value < 0):
 					return n
 				elif (isPrime(value)): # check if value is prime
 					break
-		
-												
-						
-
 
 def isPrime(number):
 	if number in listOfPrimes:
@@ -47,16 +43,10 @@ def main():
 	start_time = time.time()
 	print "The smallest odd composite that CANNOT be written as the sum of a prime and twice a square is: ", disproveGoldbachOtherConjecture()
 	print"Solution found  in %s seconds. " % (time.time()-start_time)
-	print listOfPrimes
 
-
-	
-		
-	
 
 if __name__ == "__main__":
 	main()	
 
 
 # Answer: 5777
-# Solved in: 40.2503898144 seconds
