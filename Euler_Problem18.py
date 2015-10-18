@@ -27,8 +27,7 @@ def findMaxPath():
 	for i in range(13,-1,-1): # start from the 2nd last row of the triangle and work your way up. i corresponds to each row of the triangle.
 		for j in range(len(triangle[i])): # j corresponds to each element in a row.
 			triangle[i][j] += max(triangle[i + 1][j],triangle[i + 1][j + 1])
-	print triangle[0]
-	return				
+	return triangle[0]			
 
 
 def main():
