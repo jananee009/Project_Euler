@@ -1,4 +1,4 @@
-# Greatest product in a 20*20 grid
+# Problem 11: Greatest product in a 20*20 grid
 # Problem Source: https://projecteuler.net/problem=11
 
 
