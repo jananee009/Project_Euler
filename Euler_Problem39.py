@@ -35,7 +35,7 @@ def integerRightTrianglesBruteForce():
 def main():
 	start_time = time.time()
 	print "The value  of p, for which the number of solutions is maximised: ",integerRightTrianglesBruteForce()
-	print"Problem solved in %s seconds " % (time.time()-start_time)
+	print "Problem solved in %s seconds " % (time.time()-start_time)
 	
 
 
