@@ -6,7 +6,21 @@ class Common:
 	def __init__(self):
 		pass
 
-		
+	
+	# Takes a number is as input and returns a list containing the digits of the number. 
+	def getDigits(self,num):	
+		digits = []	
+		if num > 9: # if num is atleast a 2 digit number
+			num = str(num)
+			for char in num:
+				digits.append(int(char))				
+		else:
+			digits.append(num) # if num is a single digit number
+		return digits
+			
+	
+
+	# Returns True if the given input is a palindrome.	
 	def isPalindrome(self, input):
 		input = str(input)
 		if (input == input[::-1]):
@@ -14,6 +28,7 @@ class Common:
 		else:
 			return False	
 			
+
 
 	# converts a decimal number to binary number and returns the binary number
 	def convertDecimalToBinary(self,dec_num):	
