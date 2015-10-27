@@ -1,11 +1,21 @@
 
 
 import math
+import string
 
 class Common:
 	def __init__(self):
 		pass
 
+	# computes the alphabetical value of the given word.
+	def computeAlphabeticalValue(self, given_word):	
+		alphabets = list(string.ascii_uppercase)
+		given_word = given_word[1:-1]
+		value = 0
+		for char in given_word:
+			value = value + (alphabets.index(char) + 1)
+		return value
+				
 	
 	# Takes a number is as input and returns a list containing the digits of the number. 
 	def getDigits(self,num):	
