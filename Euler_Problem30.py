@@ -1,7 +1,5 @@
 # Digit fifth powers
-
 # Problem 30: https://projecteuler.net/problem=30
-
 # Approach: 
 # Starting from 2, We need to loop through each number and test if it satisfies the condition. But how do we know where to stop?
 # For e.g. the lowerst 4 digit number is 1000 and the highest is 9999. The fifth powers of both these numbers is 1 and 236196. Somewhere in between these 2 numbers,
