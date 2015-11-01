@@ -61,6 +61,19 @@ class Common:
 			if num % i == 0:
 				return False
 		return True		
+
+
+	# A n-digit number is called pandigital if it has all numbers from 1 to n occurring in it exactly once. For e.g., 34521.
+	def isPandigital(self, number):
+		digits_list = self.getDigits(number) # get all the digits of the number
+		if len(digits_list) == len(set(digits_list)): # if given number has unique digits
+			for digit in range(1,len(digits_list)+1): 
+				if (not digit in digits_list): # check if n digit number has all digits from 1 to n in it.
+					return False
+		else:
+			return False
+		return True		
+	
 	
 	
 
