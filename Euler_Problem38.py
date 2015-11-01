@@ -19,22 +19,11 @@ import math
 import time
 import Common
 
-common = Common.Common()
-
-# A n-digit number is called pandigital if it has all numbers from 1 to n occurring in it exactly once. For e.g., 34521.
-def isPandigital(number):
-	digits_list = common.getDigits(number) # get all the digits of the number
-	if len(digits_list) == len(set(digits_list)): # if given number has unique digits
-		for digit in range(1,len(digits_list)+1): 
-			if (not digit in digits_list): # check if n digit number has all digits from 1 to n in it.
-				return False
-	else:
-		return False
-	return True		
 
 
 
 def ceatePotentialPandigitalProducts(range_of_numbers, result):	
+	common = Common.Common()
 	for integer in range_of_numbers:
 		prod = 1
 		x = ""	
@@ -42,14 +31,13 @@ def ceatePotentialPandigitalProducts(range_of_numbers, result):
 			prod = integer * n 
 			x = x + str(prod)
 			if (len(x) >= 9):
-				if ( int(x) < 987654321 and int(x) > result and isPandigital(int(x))):
+				if ( int(x) < 987654321 and int(x) > result and common.isPandigital(int(x))):
 					result = int(x)	
 					a = integer
 					b = n		
 	return result	
 
 			
-
 def findLargestPandigitalProduct():
 	result1 = ceatePotentialPandigitalProducts(list(range(91,99)), 918273645) 
 	result2 = ceatePotentialPandigitalProducts(list(range(9012,9877)), result1)
