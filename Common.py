@@ -73,8 +73,45 @@ class Common:
 		else:
 			return False
 		return True		
-	
-	
+
+
+	# returns True if the 2 input numbers are coprime. i.e. the only positive iteger that divides both numbers is 1.
+	def isCoprime(self, number1, number2):
+		if number1 == number2:
+			return False
+		number1factors = [i  for i in range(2,number1+1) if number1%i == 0] # find factors of both numbers
+		number2factors = [i  for i in range(2,number2+1) if number2%i == 0]		
+		if (set(number1factors).intersection(number2factors)): # if both lists have common factors, 
+			return False
+		else:
+			return True	
+
+
+	# accepts a fraction in tuple form (numerator,denominator) and returns a reduced form of the fraction.		
+	def reduceFractionToLowestCommonTerms(self,fraction):
+		numerator, denominator = fraction # tuple unpacking
+		if (numerator <= denominator): # if value of fraction <= 1
+			if ((denominator % numerator) == 0):
+				lowestCommonTerms = (1,denominator/numerator)
+			else:
+				while(not self.isCoprime(numerator,denominator)):
+					for i in range(2,(numerator/2)+1):
+						if (numerator % i == denominator % i == 0):
+							numerator = numerator / i
+							denominator = denominator / i
+				lowestCommonTerms = (numerator,denominator)
+		elif (numerator > denominator): # if value of fraction > 1.
+			if ((numerator % denominator) == 0):
+				lowestCommonTerms = (numerator/denominator,1)
+			else:
+				while(not self.isCoprime(numerator,denominator)):
+					for i in range(2,(denominator/2)+1):
+						if (numerator % i == denominator % i == 0):
+							numerator = numerator / i
+							denominator = denominator / i
+				lowestCommonTerms = (numerator,denominator)
+		return 	lowestCommonTerms				
+			
 	
 
 
