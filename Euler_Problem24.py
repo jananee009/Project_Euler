@@ -4,38 +4,30 @@
 # 012   021   102   120   201   210
 # What is the millionth lexicographic permutation of the digits 0, 1, 2, 3, 4, 5, 6, 7, 8 and 9?
 
-# Approach: There are 10 digits. Total number of permutations possible with 10 digits is 10! = 3,628,800. 
-# If we fix the first digit in each of the permutations generated, then we know that there will be equal number of permutations for each first digit. 
-# For e.g. the number of permutations starting with 0  = 3,628,800/10 = 362,880. 
-# If we arrange all the permutations in ascending order, the first 362,880 permutations will begin with 0. The next 362,880 will begin with 1 and so on. 
-# From this pattern, we can see that the millionth lexicographic permutation will begin with 2. 
-# The number we want will be [1000000-(2*362880)] = 274240th number in the list containing all permutations starting with 2.
+# Approach: Solved using brute force.
 
 
 import itertools
 import time
 
 
-def permutations():
+def findPermutations():
 	listOfPermutations = []
-	input = [0,1,3,4,5,6,7,8,9]
-	output = itertools.permutations(input,None) # generate all permutations
-	output = list(output) # get a list of tuples.
+	input = [0,1,2,3,4,5,6,7,8,9]
+	output = itertools.permutations(input,None) # generate all permutations. output is a list of tuples. Each tuple is a permutations and it is a list of digits.
 	for perm in output:
-		#print perm
-		perm = list(perm) # convert tuple to list
-		temp = [str(i) for i in perm] #convert each item (number) in list to string
-		permStr = '2'+("".join(temp)) #concatenate each string element in list to form one string
-		listOfPermutations.append(permStr) # add number to list
-	print listOfPermutations[274240]
-	return
+		temp = ''.join([ str(i) for i in perm]) #convert  a tuple of digits in to a string of digits
+		listOfPermutations.append(temp) # add each string to a list.
+		if len(listOfPermutations) == 1000000: # exit for loop once we have a million strings.
+			break 
+	return int(listOfPermutations[-1]) # return the millionth item in the list
 
 		
 	
 def main():
 	start_time = time.time()
 	print "Calling function........"
-	permutations()
+	print "The millionth lexicographic permutation of the digits 0, 1, 2, 3, 4, 5, 6, 7, 8 and 9 is: ", findPermutations()
 	print"Problem solved in %s seconds " % (time.time()-start_time)
 	
 		
