@@ -1,5 +1,6 @@
 # Factorial digit sum
-# Problem 30: https://projecteuler.net/problem=20
+# Problem 20: https://projecteuler.net/problem=20
+# Find the sum of the digits in the number 100!
 # Approach: Compute 100!. Get digits of the result. Sum the digits to obtain result.
 
 
