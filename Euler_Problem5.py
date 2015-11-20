@@ -1,60 +1,38 @@
 # Smallest Multiple
+# Problem Source: https://projecteuler.net/problem=5
+
 
 import math
+import time
+import Common
 
-def getPrimeFactors(number):
-	primefactorslist = []
-	sqrt = int(math.sqrt(number))
-	for i in range(2,sqrt+1):
-		if(number % i == 0):
-			if(checkForPrime(i)):
-				primefactorslist.append(number)
-	return 	primefactorslist		
-				
-				
 
-def checkForPrime(num):
-	listOfFactors = []
-	if (num == 2):
-		return True
-	else:
-		for i in range(1,num+1):
-			if (num % i == 0):
-				listOfFactors.append(i)
-	if ( len(listOfFactors) == 2 and listOfFactors[0] == 1 and listOfFactors[1] == 2 ):
-		return True						
-	else:
-		return False
-		
-def doPrimeFactorization(dividend,listOfPrimes):	
-	for j  in range(0,len(listOfPrimes)):
-		number = dividend
-		power = 0
-		remainder = 0
-		quotient = 0
-		while (remainder == 0):
-			quotient = number / listOfPrimes[j]
-			remainder = number % listOfPrimes[j]	
-			if ( remainder == 0 ):
-				power = power + 1
-				number = quotient
-			
-		
-		
-			
-				
-def checkDivisibility(dividend, divisor):
-	if( dividend % divisor == 0 ):
-		return dividend / divisor
-	else:
-		return -1	
+
+def findSmallestMultiple():
+	common = Common.Common()
+	to_be_multiplied = [] # list of numbers to be multiplied to get the smallest multiple i.e. the result	
+	for number in range(2,21):
+		prime_fact_list = common.findPrimeFactors(number) # express the number in terms of its prime factors
+		prime_factor_count = {fact:prime_fact_list.count(fact) for fact in prime_fact_list } # keep a count of the number of times a prime number appears as a factor for a number
+		for key in prime_factor_count: 
+			if key not in to_be_multiplied: # check if the prime factor is already in the to_be_multiplied list. If not, add it. 
+				to_be_multiplied.append(key)
+			else:
+				if 	prime_factor_count[key] > to_be_multiplied.count(key):
+					to_be_multiplied.append(key)
+	return common.computeProductOfAList(to_be_multiplied)				
 
 
 
 def main():
-	primeFactors = 	getPrimeFactors(20)
-	
+	start_time = time.time()
+	print findSmallestMultiple()
+	print"Problem solved in %s seconds " % (time.time()-start_time)
 
+	
 
 if __name__ == "__main__":
 	main()
+
+
+# Answer: 232792560	
