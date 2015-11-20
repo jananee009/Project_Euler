@@ -110,7 +110,32 @@ class Common:
 							numerator = numerator / i
 							denominator = denominator / i
 				lowestCommonTerms = (numerator,denominator)
-		return 	lowestCommonTerms				
+		return 	lowestCommonTerms	
+
+
+	# returns a list of prime factors of a given number	
+	def findPrimeFactors(self, number):		
+		list_of_prime_factors = []
+		i = 2
+		while (number > 1):
+			if (number % i == 0):
+				list_of_prime_factors.append(i)
+				number = number / i
+			else:
+				i += 1
+		return list_of_prime_factors		
+
+
+	# returns the product of numbers in a list
+	def computeProductOfAList(self,list_of_numbers):
+		prod = 1
+		for number in list_of_numbers:
+			prod = prod * number
+		return prod	
+
+		
+
+
 			
 	
 
