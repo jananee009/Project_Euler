@@ -1,6 +1,6 @@
 # Champernowne's constant
 # Problem 40: https://projecteuler.net/problem=40
-# Approach: We need to find the value of th expression: d1 × d10 × d100 × d1000 × d10000 × d100000 × d1000000 in the irrational decimal 0.123456789101112131415161718192021... ?
+# Approach: We need to find the value of the expression: d1 × d10 × d100 × d1000 × d10000 × d100000 × d1000000 in the irrational decimal 0.123456789101112131415161718192021... 
 # i.e. We need to find out the 1st, 10th, 100th digit......1000000th digit  in the irrational decimal fraction. 
 # The decimal part of the fraction is nothing but 1,2,3,4,....... written consecutively, where d1=1, d2=2,d3=3,........d9=9,d10=1,d11=0, and so on. 
 # We need to figure out how far we need to write the series 1,2,3,4,...... to find  d1, d10, d100, d1000, d10000, d100000, d1000000.
@@ -26,30 +26,17 @@
 # d10 = 1
 # d100 = ? We can get d100 if we pass 48 digits after d52. These 48 digits belong to 2 digit numbers. i.e. we are looking at 48/2=24 numbers after 31.
 # Hence 31 + 24 = 55. Thus d100 = 5.
-# d1000 = ? We can get d1000 if we pass 900 digits after d100. These 900 digits belong to 3 digit numbers i.e. we are looking at 900 / 3 = 300 numbers after 100.
+# d1000 = ? We can get d1000 if we pass 810 digits after d190. These 810 digits belong to 3 digit numbers i.e. we are looking at 810 / 3 = 270 numbers after 100.
+# Hence 100 + 270 = 370. Hence d1000 = 3.
+# d10000 = ? We can get d10000 if we pass 7110 digits after d2890. These 7110 digits belong to 4 digit numbers i.e. we are looking at 7110 / 4 = 1777.5 numbers after 1000.
+# Hence, 1000 + 1777 = 2777. Hence d10000 = 7.
+# d100000 = ? We can get d100000 if we pass 61110 digits after d38890. These 61110 digits belong to 5 digit numbers i.e. we are looking at  61110 / 5 = 12222 numbers after 10000.
+# Hence, 10000 + 12222 = 22222. Hence d100000 = 2.
+# d1000000 = ? We can get d1000000 if we pass 511110 digits after d488890. These 511110 digits belong to 6 digit numbers i.e. we are looking at 511110 / 6 = 85185 numbers after 100000.
+# Hence 100000 + 85185 = 185185. Hence d1000000 = 1. (Note: We had found d1000000 earlier too.)
+# Thus, d1 × d10 × d100 × d1000 × d10000 × d100000 × d1000000  = 1 * 1 * 5 * 3 * 7 * 2 * 1 = 210
 
-
-
-import time
-import Common
-
-
-
-
-			
-		
 
 	
-def main():
-	start_time = time.time()
-	print "The largest n-digit pandigital prime that exists is : ", findLargestPandigitalPrime()
-	print "Problem solved in %s seconds " % (time.time()-start_time)
-	
-		
-	
 
-if __name__ == "__main__":
-	main()	
-	
 
-# Answer:  	
