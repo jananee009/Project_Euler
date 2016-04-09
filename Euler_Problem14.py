@@ -16,20 +16,17 @@ def getNumWithLongestCollatzSequence():
 		oneCollatzSequence = [] 
 		oneCollatzSequence.append(temp)
 		while(n != 1):			
-			if( n%2 == 0):
+			if( n%2 == 0): # if n is even
 				n = n/2
-				if (n in dict_sequenceLength): # if we encounter a number, for which we computed the collatz sequence before, 
-					length = dict_sequenceLength[n] # then just look up that number in the dictionary keys and get the corresponding value to get the length of the sequence.
-					break						
-				else:	
-					oneCollatzSequence.append(n)
-			else:
+			else: # n is odd
 				n = 3*n + 1
-				if (n in dict_sequenceLength):
-					length = dict_sequenceLength[n]
-					break						
-				else:	
-					oneCollatzSequence.append(n)						
+								
+			if (n in dict_sequenceLength): # if we encounter a number, for which we computed the collatz sequence before, 
+				length = dict_sequenceLength[n] # then just look up that number in the dictionary keys and get the corresponding value to get the length of the sequence.
+				break						
+			else:	
+				oneCollatzSequence.append(n)	
+
 		dict_sequenceLength[temp] = len(oneCollatzSequence) + length
 		
 	# get the number with the has the maximum length of collatz sequence 
