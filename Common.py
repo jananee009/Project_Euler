@@ -2,11 +2,15 @@
 
 import math
 import string
+import collections
 
 class Common:
 	def __init__(self):
 		pass
 
+	
+
+		
 	# computes the alphabetical value of the given word.
 	def computeAlphabeticalValue(self, given_word):	
 		alphabets = list(string.ascii_uppercase)
@@ -132,6 +136,37 @@ class Common:
 		for number in list_of_numbers:
 			prod = prod * number
 		return prod	
+
+	
+	# accepts a number as input and returns -1 if the number CANNOT be expressed purely as power of 2. Otherwise, it returns the power of 2.	
+	def expressAsPowerOf2(self, number):
+		power = 0
+		while (number > 1):
+			if (number % 2 == 0):
+				power += 1
+				number = number / 2
+			else:
+				return -1
+		return power			
+	
+	# checks if input values are permutations of each other.	
+	def checkIfPermuted(self,value1, value2):
+		a = set(str(value1))
+		b = set(str(value2))
+
+		if a == b:
+			return True
+		else:
+			return False	
+
+	# Accepts values of n and r as input and returns value of nCr. 		
+	def computeCombinations(self,n,r):
+		numerator = math.factorial(n)	
+		denominator = 	math.factorial(r) * math.factorial(n-r)
+		return (numerator / denominator)
+
+
+
 
 		
 
