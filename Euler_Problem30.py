@@ -14,14 +14,13 @@ import math
 import time
 import Common
 
-common = Common.Common()
 
 
 			
 def findDigitFifthPowers():
 	DigitfifthPowers = []
 	for number in range(2,354295): 
-		numberDigits = common.getDigits(number) # find the individual digits of the number
+		numberDigits = Common.getDigits(number) # find the individual digits of the number
 		sumOfFifthpowers = sum([x**5 for x  in numberDigits]) # compute fifth power of each digit of the number and sum them.
 		if number == sumOfFifthpowers: # if number equals the sum
 			DigitfifthPowers.append(number) # add the number to the list.
@@ -31,7 +30,6 @@ def findDigitFifthPowers():
 	
 def main():
 	start_time = time.time()
-	print "Calling function........"
 	print "the sum of all the numbers that can be written as the sum of fifth powers of their digits: ", findDigitFifthPowers()
 	print "Problem solved in %s seconds " % (time.time()-start_time)
 	
