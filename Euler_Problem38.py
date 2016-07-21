@@ -23,7 +23,7 @@ import Common
 
 
 def ceatePotentialPandigitalProducts(range_of_numbers, result):	
-	common = Common.Common()
+	
 	for integer in range_of_numbers:
 		prod = 1
 		x = ""	
@@ -31,7 +31,7 @@ def ceatePotentialPandigitalProducts(range_of_numbers, result):
 			prod = integer * n 
 			x = x + str(prod)
 			if (len(x) >= 9):
-				if ( int(x) < 987654321 and int(x) > result and common.isPandigital(int(x))):
+				if ( int(x) < 987654321 and int(x) > result and Common.isPandigital(int(x))):
 					result = int(x)	
 					a = integer
 					b = n		
