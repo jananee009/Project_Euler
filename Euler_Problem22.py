@@ -16,8 +16,6 @@ import Common
 
 
 
-common = Common.Common()
-
 
 def readTextFile():
 	f = open('p022_names.txt','r') # create a file object
@@ -31,7 +29,7 @@ def computeTotalNameScores():
 	list_of_names.sort() # sort all names in the list alphabetically
 	sum_of_name_scores = 0
 	for name in list_of_names:
-		word_value = common.computeAlphabeticalValue(name) # compute alphabetical value of the name
+		word_value = Common.computeAlphabeticalValue(name) # compute alphabetical value of the name
 		sum_of_name_scores = sum_of_name_scores + (list_of_names.index(name)+1)*word_value #Multiply each name's alphabetical value with its position in the list to get its name score.
 	return sum_of_name_scores 		
 
