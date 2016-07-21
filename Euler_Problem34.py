@@ -12,7 +12,7 @@ import math
 import time
 import Common
 
-common = Common.Common()
+
 
 # returns the factorial of a number			
 def computeFactorial(n):
@@ -24,7 +24,7 @@ def computeFactorial(n):
 def findFactorialDigitSum(List_Of_Factorials):
 	result = []
 	for number in range(10,1819441):
-		sum_digit_factorials = sum([List_Of_Factorials[x] for x in common.getDigits(number)]) # calculate the sum of factorial of all digits of the number
+		sum_digit_factorials = sum([List_Of_Factorials[x] for x in Common.getDigits(number)]) # calculate the sum of factorial of all digits of the number
 		if (number == sum_digit_factorials):
 			result.append(number)
 	return	sum(result)

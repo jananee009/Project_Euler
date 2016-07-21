@@ -6,13 +6,13 @@
 import time
 import Common 
 
-common = Common.Common()
+
 
 def findDoubleBasePalindrome():
 	doublebasepalindromes = []
 	for d in range(1,1000000): # for each decimal number below 1 million
-		if (common.isPalindrome(d)): # check if number is a palindrome
-			if(common.isPalindrome(common.convertDecimalToBinary(d))): # convert the decimal number to binary and check if it is a palindrome
+		if (Common.isPalindrome(d)): # check if number is a palindrome
+			if(Common.isPalindrome(Common.convertDecimalToBinary(d))): # convert the decimal number to binary and check if it is a palindrome
 				doublebasepalindromes.append(d) # add it to the list
 	sum_doublebasepalindromes = sum(doublebasepalindromes)	# sum all double base palindromes.	
 	return sum_doublebasepalindromes	
@@ -28,4 +28,4 @@ def main():
 if __name__ == "__main__":
 	main()
 
-# Answer: 840	
+# Answer: 872187	
