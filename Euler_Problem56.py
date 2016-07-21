@@ -32,7 +32,7 @@ import Common
 
 			
 def findMaximumDigitalSumBruteForce():
-	common = Common.Common()
+	
 	maxSum = 0
 	for a in range(2,100):
 		for b in range(2,100):
@@ -40,7 +40,7 @@ def findMaximumDigitalSumBruteForce():
 			if value < 10:
 				continue
 			else:
-				digitalSum = sum(common.getDigits(value))
+				digitalSum = sum(Common.getDigits(value))
 				if digitalSum > maxSum:
 					maxSum = digitalSum	 	
 	return maxSum

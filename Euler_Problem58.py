@@ -26,7 +26,7 @@ import Common
 
 
 def spiralPrimes():
-	common = Common.Common()
+	
 
 	# as given in the problem:
 	diagonal_Elements = [1,3,5,7,9,13,17,21,25,31,37,43,49]
@@ -48,7 +48,7 @@ def spiralPrimes():
 		# We need to compute  only the first 3 diagonal elements for each layer added and check if each is a prime. We know that the last element is always an odd perfect square. 
 		for i in range(1,4):
 			#new_diag_element = (square_side_length**2) + (square_side_length+1)*i
-			if common.isPrime((square_side_length**2) + (square_side_length+1)*i):
+			if Common.isPrime((square_side_length**2) + (square_side_length+1)*i):
 				number_of_prime_diagonal_elements += 1
 
 

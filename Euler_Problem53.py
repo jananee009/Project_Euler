@@ -18,12 +18,12 @@ import Common
 
 def findCombinatoricSelections():
 	ncr_more_than_1m = 0 # keeps track of the required values
-	common = Common.Common()
+	
 	
 
 	for n in range(23,101): # as given in the question.
 		for r in range(2,n-2):
-			comb = common.computeCombinations(n,r)
+			comb = Common.computeCombinations(n,r)
 			if (comb > 1000000):
 				# store the value of r for which nCr exceeds 1,000,000
 				r1 = r

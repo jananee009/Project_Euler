@@ -10,7 +10,6 @@ import math
 import time
 import Common
 
-common = Common.Common()
 
 # returns True if a given number is Lychrel else returns False
 def isLychrel(number):
@@ -18,14 +17,14 @@ def isLychrel(number):
 	while (iterations <= 50 ): # for 50 iterations or less
 		reversed_number = ""
 		# Reverse the given number
-		for digit in reversed(common.getDigits(number)): 
+		for digit in reversed(Common.getDigits(number)): 
 			reversed_number = reversed_number+str(digit)
 
 		# sum number and its reverse 	
 		number_added_to_reverse = number+int(reversed_number)
 
 		#  if sum is a palindrome, tell that the given number is not lychrel by returning False.
-		if common.isPalindrome(str(number_added_to_reverse)):
+		if Common.isPalindrome(str(number_added_to_reverse)):
 			return False
 		iterations +=1 
 		number = number_added_to_reverse
