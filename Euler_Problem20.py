@@ -8,7 +8,7 @@ import math
 import time
 import Common
 
-common = Common.Common()
+
 
 # returns the factorial of a number			
 def computeFactorial(n):
@@ -19,7 +19,7 @@ def computeFactorial(n):
 	
 def main():
 	start_time = time.time()
-	print "The sum of the digits in the number 100!: ", sum(common.getDigits(computeFactorial(100)))
+	print "The sum of the digits in the number 100!: ", sum(Common.getDigits(computeFactorial(100)))
 	print "Problem solved in %s seconds " % (time.time()-start_time)
 	
 		
@@ -30,3 +30,4 @@ if __name__ == "__main__":
 	
 
 # Answer: 648	
+# Problem solved in 0.000541925430298 seconds 
