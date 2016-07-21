@@ -13,8 +13,6 @@ import time
 import math
 import Common
 
-common = Common.Common()
-
 
 # computes the root of the quadratic equation.
 def solveQuadraticEquation(a,b,c):
@@ -55,7 +53,7 @@ def findTriangleWordCount():
 	list_of_triangular_words = [] # will store all the triangular words.
 
 	for word in list_of_words:
-		word_value = common.computeAlphabeticalValue(word) # compute word value.
+		word_value = Common.computeAlphabeticalValue(word) # compute word value.
 
 		# check if the word value is a triangular number
 		# The equation word_value = n*(n+1)/2 can be rewritten as n*n + n - 2*word_value = 0

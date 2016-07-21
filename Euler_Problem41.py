@@ -21,7 +21,7 @@ from itertools import permutations
 			
 def findLargestPandigitalPrime():
 	largestPrime = 0
-	common = Common.Common()
+
 	# find 7 digit pandigital prime:
 	validUnitsDigit = [1,3] # the units digit of a 7 digit pandigital prime number cannot be 9. It cannot be 7 either because we are checking for 7 digit numbers beginning with 7.
 	for digit in validUnitsDigit:
@@ -33,7 +33,7 @@ def findLargestPandigitalPrime():
 		perms = [int('7'+''.join(p)+str(digit)) for p in permutations(inputString)]	# Append 7 to the beginning of all permutations and the units digit to the end. So we have all permutations starting with 7 and ending with "units digit"
 		perms.sort(reverse=True) # since we want the highest number, sort the list ind descending order.
 		for p in perms:
-			if (common.isPrime(p) and p > largestPrime):
+			if (Common.isPrime(p) and p > largestPrime):
 				largestPrime = p
 				break			
 	return largestPrime			
