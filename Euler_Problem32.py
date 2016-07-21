@@ -29,8 +29,6 @@ import Common
 import itertools 
 
 
-common = Common.Common()
-
 def fingPandigitalProdcuts():	
 	pandigitalProducts = {0} # we are using a set because we want to avoid adding duplicate pandigital products.
 
@@ -39,7 +37,7 @@ def fingPandigitalProdcuts():
 		for multiplier in range(102, 988):
 			product = multiplicand * multiplier # compute product
 			multiplicand_nultiplier_product = int(str(multiplicand) + str(multiplier) + str(product)) # form a single identity using the multiplicand, multiplier and product
-			if (common.isPandigital(multiplicand_nultiplier_product)): # check if the identity is pandigital
+			if (Common.isPandigital(multiplicand_nultiplier_product)): # check if the identity is pandigital
 				pandigitalProducts.add(product) # add product to the set of pandigital products.
 
 	# 1 digit multiplicands are multiplied with 4-digit multipliers			
@@ -47,7 +45,7 @@ def fingPandigitalProdcuts():
 		for multiplier in range(1002, 9877):
 			product = multiplicand * multiplier # compute product
 			multiplicand_nultiplier_product = int(str(multiplicand) + str(multiplier) + str(product)) # form a single identity using the multiplicand, multiplier and product
-			if (common.isPandigital(multiplicand_nultiplier_product)): # check if the identity is pandigital
+			if (Common.isPandigital(multiplicand_nultiplier_product)): # check if the identity is pandigital
 				pandigitalProducts.add(product) # add product to the set of pandigital products.
 	 				
 	return	sum(pandigitalProducts)	
