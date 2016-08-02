@@ -117,7 +117,7 @@ def drawAChanceCard(token_location):
 		return (token_location - 3)				
 
 
-def simulateMonopoly(n):
+def simulateMonopoly(n, number_of_sides_of_die):
 
 	community_chest_squares = [2,17,33] 
 	chance_squares = [7,22,36]
@@ -132,8 +132,8 @@ def simulateMonopoly(n):
 	while (simulation_number < n): # for each simulation
 		
 		
-		dice1 = random.randint(1,4) # roll 2 four-sided dice.
-		dice2 = random.randint(1,4)
+		dice1 = random.randint(1,number_of_sides_of_die) # roll 2 four-sided dice.
+		dice2 = random.randint(1,number_of_sides_of_die)
 		roll_dice = dice1 + dice2 # sum of the numbers rolled on both dice.
 		
 
@@ -179,7 +179,9 @@ def simulateMonopoly(n):
 
 def main():
 	start_time = time.time()
-	print ("The six digit modal string is: ", simulateMonopoly(1000000))
+	die_side = int(input("Enter number of sides for both die: "))
+	print("For a "+str(die_side)+"-sided die: ")
+	print ("The six digit modal string is: ", simulateMonopoly(1000000,die_side))
 	print ("Problem solved in %s seconds " % (time.time()-start_time))
 
 	
