@@ -181,7 +181,7 @@ def main():
 	start_time = time.time()
 	die_side = int(input("Enter number of sides for both die: "))
 	print("For a "+str(die_side)+"-sided die: ")
-	print ("The six digit modal string is: ", simulateMonopoly(1000000,die_side))
+	print ("The six digit modal string for a",die_side,"-sided die is: ", simulateMonopoly(1000000,die_side))
 	print ("Problem solved in %s seconds " % (time.time()-start_time))
 
 	
