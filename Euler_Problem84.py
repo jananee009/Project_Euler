@@ -13,7 +13,7 @@
 # Simulate the roll of 2 6-sided dice.
 
 # For the Community Chest card: 
-# a) There are 16 CC cards. Shuffle the cards at the start of the game. This is achieved by randomly sampling wihtout replacement 16 numbers in the range (1,16) both inclusive.
+# a) There are 16 CC cards. Shuffle the cards at the start of the game. This is achieved by randomly sampling without replacement 16 numbers in the range (1,16) both inclusive.
 # b) According to the problem rules, only card numbers 1 and 2 order a movement. If we draw any other number, we dont move anywhere i.e. we do nothing.
 # c) Each time the player lands on the Community Chest square, get the first number (and the corresponding chance card) from the beginning of the random list. 
 # d) Once the card is read, remove the number from the beginning and append the number  to the end of the random list.
@@ -52,17 +52,17 @@ def drawACommunityChestCard(token_location):
 	advance_to_go = 0 # player lands in "Go" (Square Number: 0)
 	go_to_jail = 10  # player lands in "Jail" (Square Number: 10)
 	chance_card_dict = {1:advance_to_go, 2:go_to_jail}
-   	
-   	cc_card_drawn = community_chest_card_deck.popleft() 
-   	community_chest_card_deck.append(cc_card_drawn)
 
-   	if cc_card_drawn > 2:
-   		return token_location
+	cc_card_drawn = community_chest_card_deck.popleft()
+	community_chest_card_deck.append(cc_card_drawn)
 
-   	if cc_card_drawn == 1:
-   		return advance_to_go
-   	else:
-   		return go_to_jail
+	if cc_card_drawn > 2:
+		return token_location
+
+	if cc_card_drawn == 1:
+		return advance_to_go
+	else:
+		return go_to_jail
 
 
 
@@ -132,9 +132,9 @@ def simulateMonopoly(n):
 	while (simulation_number < n): # for each simulation
 		
 		
-		dice1 = random.randint(1,4) 
+		dice1 = random.randint(1,4) # roll 2 four-sided dice.
 		dice2 = random.randint(1,4)
-		roll_dice = dice1 + dice2 
+		roll_dice = dice1 + dice2 # sum of the numbers rolled on both dice.
 		
 
 		if dice1 == dice2: # check if you rolled a double
@@ -170,7 +170,8 @@ def simulateMonopoly(n):
 		squares_visited_by_the_player.append(location_of_token)	
 
 	# get the top 3 most visited squares:	
-	most_visited_squares_counts = Counter(squares_visited_by_the_player).most_common(3)
+	most_visited_squares_counts = Counter(squares_visited_by_the_player).most_common(40)
+	print("Most visited Squares",most_visited_squares_counts)
 	most_visited_squares = str(most_visited_squares_counts[0][0]) + str(most_visited_squares_counts[1][0]) + str(most_visited_squares_counts[2][0])
 	return most_visited_squares
 
@@ -178,8 +179,8 @@ def simulateMonopoly(n):
 
 def main():
 	start_time = time.time()
-	print "The six digit modal string is: ", simulateMonopoly(1000000)
-	print"Problem solved in %s seconds " % (time.time()-start_time)
+	print ("The six digit modal string is: ", simulateMonopoly(1000000))
+	print ("Problem solved in %s seconds " % (time.time()-start_time))
 
 	
 
